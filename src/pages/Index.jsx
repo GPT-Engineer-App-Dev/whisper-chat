@@ -1,7 +1,10 @@
 import { Box, Flex, Input, Text, VStack, IconButton } from "@chakra-ui/react";
+import { useState } from 'react';
 import { FaPaperPlane } from "react-icons/fa";
 
 const Index = () => {
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
   return (
     <Box h="100vh" bg="white">
       <Flex h="100%" direction={{ base: "column", md: "row" }}>
@@ -15,21 +18,23 @@ const Index = () => {
         </Box>
         <Flex direction="column" w={{ base: "100%", md: "70%" }} p={4} justifyContent="space-between">
           <VStack spacing={4} overflowY="auto">
-            <Box bg="gray.100" p={4} borderRadius="lg" alignSelf="flex-start">
-              <Text>Hi there!</Text>
-            </Box>
-            <Box bg="blue.500" p={4} borderRadius="lg" alignSelf="flex-end" color="white">
-              <Text>Hello!</Text>
-            </Box>
+            {messages.map((msg, index) => (
+              <Box key={index} bg="gray.100" p={4} borderRadius="lg" alignSelf="flex-start">
+                <Text>{msg}</Text>
+              </Box>
+            ))}
           </VStack>
           <Flex mt={4}>
-            <Input placeholder="Type a message" flexGrow={1} />
+            <Input placeholder="Type a message" value={message} onChange={(e) => setMessage(e.target.value)} flexGrow={1} />
             <IconButton
               aria-label="Send message"
               icon={<FaPaperPlane />}
               ml={2}
               colorScheme="blue"
-              onClick={() => console.log("Message sent")}
+              onClick={() => {
+                setMessages([...messages, message]);
+                setMessage('');
+              }}
             />
           </Flex>
         </Flex>
