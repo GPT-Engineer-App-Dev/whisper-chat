@@ -5,7 +5,7 @@ const Index = () => {
   return (
     <Box h="100vh" bg="white">
       <Flex h="100%" direction={{ base: "column", md: "row" }}>
-        <Box w={{ base: "100%", md: "30%" }} bg="green.500" p={4} color="white">
+        <Box w={{ base: "100%", md: "30%" }} bg="purple.500" p={4} color="white">
           <VStack align="stretch" spacing={4}>
             <Text fontSize="2xl" fontWeight="bold">Contacts</Text>
             <Text>John Doe</Text>
