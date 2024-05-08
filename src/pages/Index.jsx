@@ -4,7 +4,11 @@ import { FaPaperPlane } from "react-icons/fa";
 
 const Index = () => {
   const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    "Hello, how are you today?",
+    "Greetings, fellow Earthling!",
+    "Hey! What's up?"
+  ]);
   return (
     <Box h="100vh" bg="white">
       <Flex h="100%" direction={{ base: "column", md: "row" }}>
